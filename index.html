@@ -45,7 +45,7 @@
                     console.log('Welcome!  Fetching your information.... ');
                     FB.api('/me',{fields: 'id,name,email,picture,link'}, function (response) {
                         console.log('Good to see you, ',response);
-                        document.getElementById("response").innerText(JSON.stringify(response));
+                        document.getElementById("response").innerHTML(JSON.stringify(response));
                     });
                 } else {
                     console.log('User cancelled login or did not fully authorize.');
