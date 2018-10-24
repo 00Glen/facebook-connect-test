@@ -42,6 +42,7 @@
         document.getElementById("btn_login").addEventListener("click", function () {
             FB.login(function (response) {
                 if (response.authResponse) {
+                    console.log("response",response);
                     console.log('Welcome!  Fetching your information.... ');
                     FB.api('/me',{fields: 'id,name,email,picture,link'}, function (response) {
                         console.log('Good to see you, ',response);
@@ -50,7 +51,7 @@
                 } else {
                     console.log('User cancelled login or did not fully authorize.');
                 }
-            });
+            },{scope: 'public_profile,email'});
         })
     </script>
 </body>
