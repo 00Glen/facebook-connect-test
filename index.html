@@ -48,6 +48,16 @@
                     FB.api('/me',{fields: 'id,name,email,picture,link'}, function (response) {
                         console.log('Good to see you, ',response);
                         document.getElementById("response").innerHTML = JSON.stringify(response);
+
+                        FB.api(
+                            "/"+response.id+"/",
+                            function (response) {
+                                if (response && !response.error) {
+                                    console.log("api ID: ",response);
+                                    
+                                }
+                            }
+                        );
                     });
                 } else {
                     console.log('User cancelled login or did not fully authorize.');
